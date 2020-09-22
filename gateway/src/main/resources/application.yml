@@ -1,0 +1,18 @@
+server:
+  port: 8085
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: dadata
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/dadata/**
+        - id: not-dadata
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/not-dadata/**
+        - id: consul
+          uri: http://localhost:8500/
+          predicates:
+            - Path=/**
