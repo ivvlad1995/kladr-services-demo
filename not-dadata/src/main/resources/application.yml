@@ -6,3 +6,5 @@ spring:
       discovery:
         instance-id: not-dadata
         health-check-url: http://localhost:8080/
+        hostname: localhost
+        port: 8500
