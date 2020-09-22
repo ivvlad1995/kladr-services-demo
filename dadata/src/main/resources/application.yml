@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: kladr-services
+  cloud:
+    consul:
+      discovery:
+        instance-id: dadata
+        health-check-url: http://localhost:8080/
+        hostname: localhost
+        port: 8500
