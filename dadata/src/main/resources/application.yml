@@ -7,6 +7,6 @@ spring:
     consul:
       discovery:
         instance-id: dadata
-        health-check-url: http://localhost:8081/
+        health-check-url: http://localhost:8081/dadata/
         hostname: localhost
         port: 8500
