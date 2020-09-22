@@ -1,3 +1,5 @@
+server:
+  port: 8082
 spring:
   application:
     name: kladr-services
@@ -5,6 +7,6 @@ spring:
     consul:
       discovery:
         instance-id: not-dadata
-        health-check-url: http://localhost:8080/
+        health-check-url: http://localhost:8082/
         hostname: localhost
         port: 8500
