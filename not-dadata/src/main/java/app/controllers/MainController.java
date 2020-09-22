@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
     @RequestMapping("/")
     public String index(){
-        return "The not-dadata works.";
+        return "Ok.";
     }
 }
