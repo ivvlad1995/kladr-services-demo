@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
     @RequestMapping("/")
     public String index(){
-        return "Ok.";
+        return "Service alive and reachable";
     }
 }
