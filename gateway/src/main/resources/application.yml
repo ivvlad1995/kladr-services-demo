@@ -1,18 +1,18 @@
 server:
-  port: 8085
+  port: ${APP_PORT}
 spring:
   cloud:
     gateway:
       routes:
         - id: dadata
-          uri: http://localhost:8081/
+          uri: http://${NOT_DADATA_HOST}:${NOT_DADATA_PORT}/
           predicates:
             - Path=/dadata/**
         - id: not-dadata
-          uri: http://localhost:8082/
+          uri: http://${DADATA_HOST}:${DADATA_PORT}/
           predicates:
             - Path=/not-dadata/**
         - id: consul
-          uri: http://localhost:8500/
+          uri: http://${DISCOVERY_HOST}:${DISCOVERY_PORT}/
           predicates:
             - Path=/**
