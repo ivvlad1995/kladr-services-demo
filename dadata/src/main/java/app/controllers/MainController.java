@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/dadata")
 public class MainController {
-    @Value("key.api")
+    @Value("${key.api}")
     private String API_KEY;
-    @Value("key.secret")
+    @Value("${key.secret}")
     private String SECRET_KEY;
 
     @RequestMapping("/")
