@@ -10,3 +10,6 @@ spring:
         health-check-url: http://localhost:8081/dadata/
         hostname: localhost
         port: 8500
+key:
+  api: ${API_KEY}
+  secret: ${SECRET_KEY}
