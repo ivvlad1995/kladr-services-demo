@@ -25,6 +25,8 @@ public class MainController {
 
     @RequestMapping("/add/{address}")
     public Object add_address(@PathVariable String address){
-        return addressRepository.save(new Address((address.trim()).toUpperCase()));
+        Address result = addressRepository.findByDescription((address.trim()).toUpperCase());
+        if(result == null) return addressRepository.save(new Address((address.trim()).toUpperCase()));
+        return result;
     }
 }
