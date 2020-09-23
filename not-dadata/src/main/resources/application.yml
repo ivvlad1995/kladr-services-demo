@@ -10,3 +10,8 @@ spring:
         health-check-url: http://localhost:8082/not-dadata/
         hostname: localhost
         port: 8500
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: kladrdb
