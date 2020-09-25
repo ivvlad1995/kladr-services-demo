@@ -1,15 +1,14 @@
 server:
   port: ${APP_PORT}
 spring:
-  application:
-    name: kladr-services
   cloud:
     consul:
+      host: ${CONSUL_HOST}
+      port: ${CONSUL_PORT}
       discovery:
         instance-id: not-dadata
+        serviceName: kladr-services
         health-check-url: http://${APP_HOST}:${APP_PORT}/not-dadata/
-        hostname: ${CONSUL_HOST}
-        port: ${CONSUL_PORT}
   data:
     mongodb:
       host: ${MONGODB_HOST}

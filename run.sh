@@ -1,22 +1,22 @@
 #!/bin/bash
 
-CONSUL_HOST="kladr_consul"
+CONSUL_HOST="consul"
 CONSUL_PORT="8500"
 
-MONGODB_HOST="kladr_mongodb"
+MONGODB_HOST="mongodb"
 MONGODB_PORT="27017"
 MONGODB_DATABASE="kladrdb"
 
-GATEWAY_HOST="kladr_gateway"
+GATEWAY_HOST="gateway"
 GATEWAY_PORT="8080"
 
-DADATA_HOST="kladr_dadata"
+DADATA_HOST="dadata"
 DADATA_PORT="8080"
 
-NOT_DADATA_HOST="kladr_not_dadata"
+NOT_DADATA_HOST="not-dadata"
 NOT_DADATA_PORT="8080"
 
-NETWORK_NAME_KLADR="kladr_network"
+NETWORK_NAME_KLADR="kladr-network"
 
 sudo docker network rm ${NETWORK_NAME_KLADR}
 sudo docker network create ${NETWORK_NAME_KLADR}
@@ -41,7 +41,7 @@ sudo docker run -d \
 sudo docker run -d \
   --net ${NETWORK_NAME_KLADR} \
   --name ${GATEWAY_HOST} \
-  -p 80:${GATEWAY_PORT} \
+  -p 8085:${GATEWAY_PORT} \
   -e APP_PORT=${GATEWAY_PORT} \
   -e CONSUL_HOST=${CONSUL_HOST} \
   -e CONSUL_PORT=${CONSUL_PORT} \
@@ -62,7 +62,7 @@ sudo docker run -d \
   -e SECRET_KEY=${SECRET_KEY} \
   kladr-services:dadata
 
-sudo docker run -d \
+sudo docker run  \
   --net ${NETWORK_NAME_KLADR} \
   --name ${NOT_DADATA_HOST} \
   -e APP_HOST=${NOT_DADATA_HOST} \
