@@ -5,14 +5,14 @@ spring:
     gateway:
       routes:
         - id: dadata
-          uri: http://${NOT_DADATA_HOST}:${NOT_DADATA_PORT}/
+          uri: http://${DADATA_HOST}:${DADATA_PORT}/
           predicates:
             - Path=/dadata/**
         - id: not-dadata
-          uri: http://${DADATA_HOST}:${DADATA_PORT}/
+          uri: http://${NOT_DADATA_HOST}:${NOT_DADATA_PORT}/
           predicates:
             - Path=/not-dadata/**
         - id: consul
-          uri: http://${DISCOVERY_HOST}:${DISCOVERY_PORT}/
+          uri: http://${CONSUL_HOST}:${CONSUL_PORT}/
           predicates:
             - Path=/**

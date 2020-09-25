@@ -8,8 +8,8 @@ spring:
       discovery:
         instance-id: not-dadata
         health-check-url: http://${APP_HOST}:${APP_PORT}/not-dadata/
-        hostname: ${DISCOVERY_HOST}
-        port: ${DISCOVERY_PORT}
+        hostname: ${CONSUL_HOST}
+        port: ${CONSUL_PORT}
   data:
     mongodb:
       host: ${MONGODB_HOST}

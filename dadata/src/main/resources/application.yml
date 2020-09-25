@@ -8,8 +8,8 @@ spring:
       discovery:
         instance-id: dadata
         health-check-url: http://${APP_HOST}:${APP_PORT}/dadata/
-        hostname: ${DISCOVERY_HOST}
-        port: ${DISCOVERY_PORT}
+        hostname: ${CONSUL_HOST}
+        port: ${CONSUL_PORT}
 key:
   api: ${API_KEY}
   secret: ${SECRET_KEY}
