@@ -41,7 +41,7 @@ sudo docker run -d \
 sudo docker run -d \
   --net ${NETWORK_NAME_KLADR} \
   --name ${GATEWAY_HOST} \
-  -p 8085:${GATEWAY_PORT} \
+  -p 80:${GATEWAY_PORT} \
   -e APP_PORT=${GATEWAY_PORT} \
   -e CONSUL_HOST=${CONSUL_HOST} \
   -e CONSUL_PORT=${CONSUL_PORT} \
@@ -62,7 +62,7 @@ sudo docker run -d \
   -e SECRET_KEY=${SECRET_KEY} \
   kladr-services:dadata
 
-sudo docker run  \
+sudo docker run -d \
   --net ${NETWORK_NAME_KLADR} \
   --name ${NOT_DADATA_HOST} \
   -e APP_HOST=${NOT_DADATA_HOST} \
