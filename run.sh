@@ -18,15 +18,15 @@ NOT_DADATA_PORT="8080"
 
 NETWORK_NAME_KLADR="kladr-network"
 
-sudo docker network rm ${NETWORK_NAME_KLADR}
-sudo docker network create ${NETWORK_NAME_KLADR}
-
 sudo docker rm --force \
   ${CONSUL_HOST} \
   ${MONGODB_HOST} \
   ${GATEWAY_HOST} \
   ${DADATA_HOST} \
   ${NOT_DADATA_HOST}
+
+sudo docker network rm ${NETWORK_NAME_KLADR}
+sudo docker network create ${NETWORK_NAME_KLADR}
 
 sudo docker run -d \
   --net ${NETWORK_NAME_KLADR} \
