@@ -6,6 +6,11 @@ cd gateway && mvn clean package && cd ..
 rm -R target/
 mkdir target
 
+sudo docker rmi \
+  kladr-services:dadata \
+  kladr-services:not-dadata \
+  kladr-services:gateway
+
 cp -r src/docker/* target/
 
 mkdir target/dadata/copy

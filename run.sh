@@ -74,4 +74,4 @@ sudo docker run -d \
   -e MONGODB_DATABASE=${MONGODB_DATABASE} \
   kladr-services:not-dadata
 
-echo "http://localhost"
+echo "http://localhost:80/"
