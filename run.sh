@@ -1,6 +1,13 @@
 #!/bin/bash
 clear
 
+if [[ -z ${API_KEY} || -z ${SECRET_KEY} ]]; then
+  echo "Sorry, need export:  API_KEY  &  SECRET_KEY "
+  echo "Sorry, need export: API_KEY & SECRET_KEY"
+  echo "Sorry, need export: API_KEY & SECRET_KEY"
+  exit
+fi
+
 CONSUL_HOST="consul"
 CONSUL_PORT="8500"
 
@@ -10,6 +17,7 @@ MONGODB_DATABASE="kladrdb"
 
 GATEWAY_HOST="gateway"
 GATEWAY_PORT="8080"
+EXT_PORT="80"
 
 DADATA_HOST="dadata"
 DADATA_PORT="8080"
@@ -42,7 +50,7 @@ sudo docker run -d \
 sudo docker run -d \
   --net ${NETWORK_NAME_KLADR} \
   --name ${GATEWAY_HOST} \
-  -p 80:${GATEWAY_PORT} \
+  -p ${EXT_PORT}:${GATEWAY_PORT} \
   -e APP_PORT=${GATEWAY_PORT} \
   -e CONSUL_HOST=${CONSUL_HOST} \
   -e CONSUL_PORT=${CONSUL_PORT} \
@@ -76,4 +84,6 @@ sudo docker run -d \
   kladr-services:not-dadata
 
 clear && sudo docker ps -a
-echo "http://localhost:80/"
+echo "http://localhost:${EXT_PORT}/"
+echo "http://localhost:${EXT_PORT}/dadata/"
+echo "http://localhost:${EXT_PORT}/not-dadata/"
