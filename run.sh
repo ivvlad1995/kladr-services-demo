@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 
 CONSUL_HOST="consul"
 CONSUL_PORT="8500"
@@ -74,4 +75,5 @@ sudo docker run -d \
   -e MONGODB_DATABASE=${MONGODB_DATABASE} \
   kladr-services:not-dadata
 
+clear && sudo docker ps -a
 echo "http://localhost:80/"

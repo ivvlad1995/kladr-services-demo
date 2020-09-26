@@ -1,4 +1,6 @@
 #!/bin/bash
+clear
+
 cd dadata && mvn clean package && cd ..
 cd not-dadata && mvn clean package && cd ..
 cd gateway && mvn clean package && cd ..
@@ -29,3 +31,5 @@ sudo docker build -t kladr-services:not-dadata . && cd ../..
 
 cd target/gateway
 sudo docker build -t kladr-services:gateway . && cd ../..
+
+clear && sudo docker images
