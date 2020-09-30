@@ -19,12 +19,12 @@ public class MainController {
     }
 
     @RequestMapping("/{address}")
-    public Object get_address(@PathVariable String address){
+    public Address get_address(@PathVariable String address){
         return addressRepository.findByDescription((address.trim()).toUpperCase());
     }
 
     @RequestMapping("/add/{address}")
-    public Object add_address(@PathVariable String address){
+    public Address add_address(@PathVariable String address){
         Address result = addressRepository.findByDescription((address.trim()).toUpperCase());
         if(result == null) return addressRepository.save(new Address((address.trim()).toUpperCase()));
         return result;

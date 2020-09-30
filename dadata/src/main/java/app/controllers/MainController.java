@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.redcom.lib.integration.api.client.dadata.dto.Address;
 
 @RestController
 @RequestMapping("/dadata")
@@ -20,7 +21,7 @@ public class MainController {
     }
 
     @RequestMapping("/{address}")
-    public Object get_address(@PathVariable String address){
+    public Address get_address(@PathVariable String address){
         Standardization standardization = new Standardization(API_KEY, SECRET_KEY);
         return standardization.cleanAddress(address);
     }
